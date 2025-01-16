@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #185878;
+    color: #fff;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+    padding: 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar .menu {
+    list-style-type: none;
+    width: 100%;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.sidebar .menu li {
+    width: 100%;
+}
+
+.sidebar .menu li a {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .menu li a:hover {
+    background-color: #0f70a1;
+    color: #fff;
+}
+
+.sidebar.collapsed .menu li a {
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.sidebar.collapsed .menu li a span {
+    display: none;
+}
+
+.sidebar.collapsed .menu li a ion-icon {
+    margin-right: 0;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.sidebar .menu li a ion-icon {
+    font-size: 25px;
+    margin-right: 25px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.sidebar.collapsed .menu li a ion-icon {
+    margin-right: 0;
+}
+
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    position: relative;
+    margin-top:3%;
+    background-color: #484848;
+}
+
+.admin-info {
+    display: flex;
+    align-items: center;
+}
+
+.admin-icon {
+    font-size: 50px;
+    color: white;
+    margin-right: 5px;
+}
+
+.admin-name-container {
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.admin-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: white;
+    margin-left:2%;
+}
+.admin-role {
+    font-size: 10px;
+    color: white;
+}
+
+
+
+.toggle-container {
+    margin-left: auto;
+    position: relative;
+    z-index: 10;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 30px;  /* Adjusted font size */
+    color: white;
+    position: relative;
+    z-index: 10;
+    margin-left:10%;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+    padding: 0;
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .admin-header {
+    width: 100%;
+    padding: 5px;
+}
+
+.sidebar.collapsed .admin-info {
+    display: none;
+}
+
+.sidebar.collapsed .toggle-btn {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.sidebar.collapsed .admin-icon {
+    display: none;
+}
+.logout-container {
+    position: relative;     
+    margin-top: auto; 
+    bottom: 0; 
+    width: 100%;
+    padding: 10px 0;
+}
+.logout-container :hover{
+    background-color:rgb(247, 110, 110);
+}
+
+.logout-container a {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+
+.logout-container a ion-icon {
+    font-size: 25px;
+    margin-right: 25px;
+    color: #fff;
+    transition: color 0.3s ease;
+
+}
+
+.sidebar.collapsed .logout-container a span {
+    display: none;
+}
+
+.sidebar.collapsed .logout-container a ion-icon {
+    margin-right: 0;
+}

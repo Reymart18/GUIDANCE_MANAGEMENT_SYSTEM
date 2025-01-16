@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    font-family: 'POPPINS',sans-serif;
+}
+
+body {
+    background-image: url(/images/LOGIN_BACKGROUND.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header {
+    display: flex;
+    padding: 10px;
+    margin-top:1%;
+
+}
+.header img {
+   max-height:50px ;
+   margin-left: 2.5%;
+   width: auto;
+
+}
+.header p {
+    color:white;
+    padding: 3px;
+    font-size:14px;
+    margin-left: 10px;
+ }
+
+.text-cover {
+    font-weight:700;
+    margin-top: 6%;
+    margin-left: 3%;
+}
+
+.text-cover h2 {
+    color:white;
+    font-weight:600;
+    font-size: 40px;
+}
+.text-cover h1 {
+    color:white;
+    font-weight:700;
+    font-size: 70px;
+}
+.text-cover p {
+    color:white;
+    font-weight:100;
+    font-size: 20px;
+}
+
+.main-content {
+    display: flex;
+}
+
+.login-container {
+    background-color: white;
+    border-radius: 6px;
+    width: 28%;
+    margin-left: 23%;
+    height: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* keep this */
+    align-items: center; 
+    justify-content: center; /* Centers vertically */
+    
+
+}
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+    justify-content: center;
+    
+}
+.form-group input {
+    width: 100%;  /* This ensures the input takes up the full width of its container */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+button[type="submit"] {
+    background-color: #357EA3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 90%;
+}
+
+.login-container h2 {
+    font-weight: 600;
+    color :#286482;
+    text-align: center;
+}
+
+.help {
+    display: flex;
+    gap:10px;
+    margin-top:2%;
+    align-items: flex-end;
+}
+
+.help img {
+
+    height: 40%;
+}
+
+.form-group input {
+    width:25vw;
+}
