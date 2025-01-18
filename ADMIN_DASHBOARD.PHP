@@ -1,3 +1,46 @@
+<?php
+// Database connection
+$conn = new mysqli("localhost", "root", "", "guidance_database");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Query to count pending cases
+$countQuery = "
+    SELECT COUNT(*) AS pending_count 
+    FROM cases 
+    WHERE status = 'Pending'
+";
+
+$countResult = $conn->query($countQuery);
+
+// Check if the query returned a result
+if ($countResult && $countResult->num_rows > 0) {
+    $countRow = $countResult->fetch_assoc();
+    $pendingCasesCount = $countRow['pending_count']; // Get the pending count
+} else {
+    $pendingCasesCount = 0; // Default to 0 if no cases are found
+}
+
+// Query to count resolved cases
+$resolvedCountQuery = "
+    SELECT COUNT(*) AS resolved_count 
+    FROM cases 
+    WHERE status = 'Resolved'
+";
+
+$resolvedCountResult = $conn->query($resolvedCountQuery);
+
+// Check if the query returned a result
+if ($resolvedCountResult && $resolvedCountResult->num_rows > 0) {
+    $resolvedCountRow = $resolvedCountResult->fetch_assoc();
+    $resolvedCasesCount = $resolvedCountRow['resolved_count']; // Get the resolved count
+} else {
+    $resolvedCasesCount = 0; // Default to 0 if no cases are found
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +56,6 @@
     <link href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/css/ionicons.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.css" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -40,26 +81,54 @@
             <li><a href="#"><ion-icon name="notifications-outline" class="icon"></ion-icon> <span>Notifications</span></a></li>
             <li><a href="#"><ion-icon name="stats-chart-outline" class="icon"></ion-icon> <span>Reports</span></a></li>
             <li><a href="#"><ion-icon name="settings-outline" class="icon"></ion-icon> <span>Settings</span></a></li>
-
         </ul>
         <div class="logout-container">
             <button id="logoutBtn"></button>
         </div>
-
     </div>
 
-    </div>
-
-    </div>
     <div class="content">
         <!-- Main Content -->
-        <marquee>Welcome to the Admin Dashboard</marquee>
+
+        <!-- Pending and Resolved Cases Container (Side by Side) -->
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Pending Cases -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <a href="view_pending_cases.php" style="text-decoration: none; color: inherit;">
+                        <div class="card shadow-lg">
+                            <div class="card-header bg-warning text-white">
+                                <h5 class="card-title">Pending Cases</h5>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="text-center" id="pending-cases-count"><?= $pendingCasesCount ?></h2>
+                                <p class="text-center">Cases pending for resolution</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Resolved Cases -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <a href="view_resolved_cases.php" style="text-decoration: none; color: inherit;">
+                        <div class="card shadow-lg">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="card-title">Resolved Cases</h5>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="text-center" id="resolved-cases-count"><?= $resolvedCasesCount ?></h2>
+                                <p class="text-center">Cases that have been resolved</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="ADMIN_DASHBOARD.JS"></script>
-
 </body>
 
 </html>

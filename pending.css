@@ -1,0 +1,25 @@
+.pending-cases {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pending-cases a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.pending-cases a:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+}
+
+.pending-cases .icon {
+    font-size: 24px;
+    margin-right: 10px;
+}

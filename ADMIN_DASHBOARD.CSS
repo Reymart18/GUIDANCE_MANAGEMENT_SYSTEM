@@ -68,23 +68,26 @@ body {
     margin-right: 0;
 }
 
-.content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f8f9fa;
-}
-
-.sidebar .menu li a ion-icon {
+.sidebar.collapsed .menu li a ion-icon {
     font-size: 25px;
     margin-right: 25px;
     color: #fff;
     transition: color 0.3s ease;
 }
 
-.sidebar.collapsed .menu li a ion-icon {
+.sidebar.collapsed .logout-container a span {
+    display: none;
+}
+
+.sidebar.collapsed .logout-container a ion-icon {
     margin-right: 0;
 }
 
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
 
 .admin-header {
     display: flex;
@@ -111,8 +114,6 @@ body {
 .admin-name-container {
     display: flex;
     flex-direction: column;
-
-    
 }
 
 .admin-name {
@@ -120,91 +121,48 @@ body {
     font-weight: bold;
     margin-bottom: 3px;
     color: white;
-    margin-left:2%;
 }
+
 .admin-role {
     font-size: 10px;
     color: white;
 }
 
-
-
 .toggle-container {
-    margin-left: auto;
-    position: relative;
-    z-index: 10;
+    margin-top: -10%;
+    margin-right: 5%;
 }
 
 .toggle-btn {
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.menu {
     padding: 0;
-    font-size: 30px;  /* Adjusted font size */
-    color: white;
-    position: relative;
-    z-index: 10;
-    margin-left:10%;
 }
 
-.sidebar.collapsed {
-    width: 60px;
-    padding: 0;
-    transition: width 0.3s ease;
-}
-
-.sidebar.collapsed .admin-header {
-    width: 100%;
-    padding: 5px;
-}
-
-.sidebar.collapsed .admin-info {
-    display: none;
-}
-
-.sidebar.collapsed .toggle-btn {
-    margin-left: 0;
-    margin-right: 5px;
-}
-
-.sidebar.collapsed .admin-icon {
-    display: none;
-}
 .logout-container {
-    position: relative;     
-    margin-top: auto; 
-    bottom: 0; 
-    width: 100%;
-    padding: 10px 0;
-}
-.logout-container :hover{
-    background-color:rgb(247, 110, 110);
+    margin-top: auto;
+    padding: 20px;
 }
 
-.logout-container a {
-    text-decoration: none;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    font-size: 18px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
+.pending-cases {
+    margin-top: 20px;
 }
 
-
-.logout-container a ion-icon {
-    font-size: 25px;
-    margin-right: 25px;
-    color: #fff;
-    transition: color 0.3s ease;
-
+.pending-count {
+    cursor: pointer;
+    color: #007bff;
 }
 
-.sidebar.collapsed .logout-container a span {
-    display: none;
+.modal-body ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.sidebar.collapsed .logout-container a ion-icon {
-    margin-right: 0;
+.modal-body ul li {
+    font-size: 14px;
+    padding: 10px;
 }
